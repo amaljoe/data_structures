@@ -133,18 +133,20 @@ int evaluatePostfix(){
     }
 }
 
-//input the value of an operand and stores it in an array
+//input the values of operands and store it in an array
 void getValues(){
     int i;
     for(i = 0; i <= pIndex; i++){
         char ch = postfix[i];
+        //check if it is a operand
         if(isalpha(ch)){
             //returns a number between 0 and 25 for each letter
             int index = getIndex(ch);
             //check if the value has not been inputted
             if(values[index] == NULL){
-                //input the value of operand
+                //allocate space for the value
                 values[index] = (int*)malloc(sizeof(int));
+                //input the value of operand
                 printf("Enter the value of %c:\n", ch);
                 scanf("%d", values[index]);
             }
@@ -156,11 +158,11 @@ void getValues(){
 int getIndex(char ch){
     int index;
     if(islower(ch)){
-        //ascii of a is 97
+        //ASCII of a is 97
         index = ch - 97;
     }
     else{
-        //ascii of A is 65
+        //ASCII of A is 65
         index = ch - 65;
     }
     return index;
