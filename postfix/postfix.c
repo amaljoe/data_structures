@@ -16,7 +16,7 @@ int top = -1;
 //stack used for evaluation of postfix expression
 int evStack[SIZE];
 int evTop = -1;
-//pointer array of intergers holding the values of variables in the expression
+//pointer array of integers holding the values of variables in the expression
 int* values[26];
 
 void displayStack();
@@ -60,7 +60,7 @@ void infixToPostfix(){
         }
         //check if its a closing bracket
         else if(ch == ')'){
-            //pop untill opening bracket is found
+            //pop until opening bracket is found
             char popped = stack[top--];
             while(popped != '('){
                 postfix[++pIndex] = popped;
@@ -138,7 +138,7 @@ void getValues(){
     int i;
     for(i = 0; i <= pIndex; i++){
         char ch = postfix[i];
-        //check if it is a operand
+        //check if it is an operand
         if(isalpha(ch)){
             //returns a number between 0 and 25 for each letter
             int index = getIndex(ch);
