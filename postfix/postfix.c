@@ -201,27 +201,3 @@ void displayPostfix(){
     }
     printf("\n\n");
 }
-
-
-// void displayStack(){
-//     if(evTop == -1){
-//         printf("Empty stack\t");
-//         return;
-//     }
-//     int i;
-//     for(i = 0; i <= evTop; i++){
-//         printf("%d ", evStack[i]);
-//     }
-//     printf("\n");
-// }
-
-
-
-
-
-
-
-
-
-
-
