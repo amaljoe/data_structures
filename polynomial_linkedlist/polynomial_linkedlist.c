@@ -8,21 +8,36 @@ struct node
     struct node *link;
 };
 
-struct node* p1_header;
-struct node* p2_header;
-struct node* a_header;
-struct node* m_header;
-
 struct node *getNode();
 void input(struct node *);
 void display(struct node *);
 void add();
 void multiply();
 
+struct node* p1_header;
+struct node* p2_header;
+struct node* a_header;
+struct node* m_header;
+
 void main()
 {
+    p1_header = getNode();
+    p2_header = getNode();
+    a_header = getNode();
+    m_header = getNode();
+    if (p1_header == NULL || p2_header == NULL || a_header == NULL || m_header == NULL)
+    {
+        printf("Memory not available.\n");
+        return;
+    }
+    printf("\nPOLYNOMIAL 1\n");
     input(p1_header);
+    printf("\nPOLYNOMIAL 2\n");
+    input(p2_header);
+    printf("\nPOLYNOMIAL 1\n");
     display(p1_header);
+    printf("\nPOLYNOMIAL 2\n");
+    display(p2_header);
 }
 
 struct node *getNode()
@@ -32,12 +47,6 @@ struct node *getNode()
 
 void input(struct node *header)
 {
-    header = getNode();
-    if (header == NULL)
-    {
-        printf("Memory not available.\n");
-        return;
-    }
     header->coeff = 0;
     header->exp = 0;
     header->link = NULL;
@@ -64,12 +73,9 @@ void input(struct node *header)
 
 void display(struct node *header)
 {
-    printf("DEBUG0 display\n");
     struct node *node = header->link;
-    printf("DEBUG1 display\n");
     while (node != NULL)
     {
-        printf("DEBUG2 display\n");
         if (node->exp == 0)
         {
             printf("%d", node->coeff);
@@ -82,11 +88,18 @@ void display(struct node *header)
         {
             printf("%dx%d", node->coeff, node->exp);
         }
+        node = node->link;
+        if(node != NULL)
+        {
+            printf(" + ");
+        }
     }
+    printf("\n");
 }
 
 void add()
 {
+
 }
 
 void multiply()
