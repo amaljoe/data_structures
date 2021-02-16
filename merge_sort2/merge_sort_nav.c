@@ -47,7 +47,7 @@ void mergesort(int a[],int n)
             m=(n/2)+1;
         }
 
-        int b[m],c[(m-n)];
+        int b[m],c[(n-m)];
 
         for(i=0;i<m;++i)
         {
