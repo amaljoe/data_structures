@@ -13,9 +13,10 @@ void main() {
     scanf("%d", &n);
     printf("Enter the elements:\n");
     for(int i = 0; i < n; i++) {
-        scanf(" %d", &arr[i]);
+        scanf("%d", &arr[i]);
     }
-    quickSort(0, n);
+    quickSort(0, n-1);
+    printf("\nSORTED ARRAY:\n");
     display();
 }
 
@@ -53,4 +54,5 @@ void display() {
     for(int i = 0; i < n; i++) {
         printf("%d ", arr[i]);
     }
+    printf("\n");
 }
