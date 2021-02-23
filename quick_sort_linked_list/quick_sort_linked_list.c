@@ -56,8 +56,6 @@ void quickSort(struct node *start, struct node *end)
 {
     if (start != NULL && end != NULL && start->index < end->index)
     {
-        // display(header);
-        // printf("pivot = %d %d, end = %d %d\n", start->data, start->index, end->data, end->index);
         struct node *mid = partition(start, end);
         quickSort(start, mid->prev);
         quickSort(mid->next, end);
@@ -77,7 +75,7 @@ struct node *partition(struct node *start, struct node *end)
         {
             end = end->prev;
         }
-        if (start->index < end->index)
+        if (start == NULL && end == NULL && start->index < end->index)
         {
             swap(start, end);
         }
@@ -92,6 +90,7 @@ void swap(struct node *start, struct node *end)
     {
         return;
     }
+
     int tempData = start->data;
     start->data = end->data;
     end->data = tempData;
@@ -109,6 +108,11 @@ void swap(struct node *start, struct node *end)
     // tempNode = start;
     // start = end;
     // end = tempNode;
+
+    // start->prev->next = start;
+    // end->prev->next = end;
+    // start->next->prev = start;
+    // end->next->prev = end;
 }
 
 void display(struct node *header)
