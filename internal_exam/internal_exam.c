@@ -97,5 +97,6 @@ struct node *create()
         root->left = create();
         printf("Enter the right child of %d:\n", data);
         root->right = create();
+        return root;
     }
 }
