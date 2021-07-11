@@ -144,7 +144,7 @@ void delete_rear()
         front = -1;
         rear = -1;
     }
-    //if front = first index, then set front = last index
+    //if rear = first index, then set rear = last index
     else if(rear == 0)
     {
         rear = max - 1;
